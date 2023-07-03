@@ -23,7 +23,7 @@ article header span {
     opacity: .6;
 }
 
-article button {
+#article-button {
     margin-left: 16px;
     border: 0;
     border-radius: 999px;
@@ -35,4 +35,8 @@ article img {
     height: 75px;
     width: 75px;
     border-radius: 50%;
+}
+
+#article-button:hover {
+    background-color: #222;
 }

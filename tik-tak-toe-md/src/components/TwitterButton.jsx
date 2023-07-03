@@ -2,7 +2,9 @@
 import './twitterButton.css'
 
 export const TwitterButton = ({ img, name, userName, isFollowing }) => {
-  return (
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
+  
+    return (
     <article className="article">
         <header>
             <img src={img} alt={userName} />
@@ -12,7 +14,7 @@ export const TwitterButton = ({ img, name, userName, isFollowing }) => {
             </div>
         </header>
         <aside>    
-            <button>follow</button>  
+            <button id='#article-button'>follow</button>  
         </aside>
     </article>
   )
