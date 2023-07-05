@@ -56,19 +56,21 @@ function App() {
       turn: turn
     })
   }, [board, turn])
-
+  const fedecha = { 'img': 'https://pbs.twimg.com/profile_images/1706686915167064064/Fh5d_3Mk_400x400.jpg', 
+                    'name': 'Federico Chaves',
+                    'userName': '@fedecha',
+                    'isFollowing': true};
   return (
     <main className='board'>
       <header style={{ display: 'flex', flexDirection: 'column', gap: '5px', margin:'10px'}}>
       <TwitterButton
-        img="https://pbs.twimg.com/profile_images/1706686915167064064/Fh5d_3Mk_400x400.jpg"
-        name="Federico Chaves"
-        userName="@fedecha" 
+        {...fedecha}
         />
       <TwitterButton
         img="https://pbs.twimg.com/profile_images/1706686915167064064/Fh5d_3Mk_400x400.jpg"
         name="Federico Chaves"
-        userName="@fedecha" 
+        userName="@fedecha"
+        isFollowing={false}
         />
       </header>
       <h1>Tic Tac Toe</h1>

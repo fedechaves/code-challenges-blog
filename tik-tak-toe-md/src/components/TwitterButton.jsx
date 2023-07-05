@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './twitterButton.css'
 
-export const TwitterButton = ({ img, name, userName }) => {
+export const TwitterButton = ({ img, name, userName, isFollowing }) => {
   return (
     <article className="article">
         <header>
