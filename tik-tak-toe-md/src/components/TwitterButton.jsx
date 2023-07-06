@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react'
 import './twitterButton.css'
 
-export const TwitterButton = ({ img, name, userName, isFollowing }) => {
+export const TwitterButton = ({ img, name, userName, initialIsFollowing }) => {
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
   
     return (
