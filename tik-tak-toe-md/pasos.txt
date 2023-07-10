@@ -1,3 +1,7 @@
 1- crear turnos
 2- crear tablero vacio
-3-
+3-hacer un map con las posiciones
+4-crear los cuadrados como componentes
+5-crear estados para tablero vac;ío
+6-crear estado para turnos
+visualizar ambos
