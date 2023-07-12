@@ -5,3 +5,11 @@
 5-crear estados para tablero vac;ío
 6-crear estado para turnos
 visualizar ambos
+7-ver de quien es el turno con una condicional
+8- funciones para modificar el board y cambiar turnos
+    evitar que se sobreescriba
+    modificar board o espacio dentro del array por el turno
+9. crear estado para ganador
+10. crear combinaciones ganadoras para saber cuando se ha ganado
+11. metodo check winner
+12. crear modal winner
