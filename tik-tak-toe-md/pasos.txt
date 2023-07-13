@@ -13,3 +13,5 @@ visualizar ambos
 10. crear combinaciones ganadoras para saber cuando se ha ganado
 11. metodo check winner
 12. crear modal winner
+13. separar en modulos
+14. local storage.
