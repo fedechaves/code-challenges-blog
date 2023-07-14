@@ -12,7 +12,7 @@ function App() {
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board')
     return boardFromStorage 
-    ? JSON.parse(boardFromStorage) : Array(9).fill(null)
+    ? JSON.parse(boardFromStorage) : Array(9).fill('fede')
   }
   );
   const [turn, setTurn] = useState(() => {
