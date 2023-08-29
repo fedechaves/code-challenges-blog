@@ -5,10 +5,19 @@ import { TURNS } from './constants';
 import { checkWinner, checkEndGame } from './logic/board';
 import WinnerModal from './components/WinnerModal';
 import './App.css'
+import { saveGameToStorage, resetGameStorage } from './logic/storage';
 
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [turn, setTurn] = useState(TURNS.X);
+  const [board, setBoard] = useState(() => {
+    const boardFromStorage = window.localStorage.getItem('board')
+    return boardFromStorage 
+    ? JSON.parse(boardFromStorage) : Array(9).fill(null)
+  }
+  );
+  const [turn, setTurn] = useState(() => {
+    const turnFromStorage = window.localStorage.getItem('turn')
+    return turnFromStorage ? turnFromStorage : TURNS.X
+  });
   const [winner, setWinner] = useState(null);
 
   const updateBoard = (index) => {
@@ -20,7 +29,11 @@ function App() {
     
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn);
-
+    //guardar partida
+    saveGameToStorage({ 
+      board: newBoard,
+      turn: newTurn
+    })
     //look for a winner
     const newWinner = checkWinner(newBoard);
     if(newWinner) {
@@ -35,6 +48,9 @@ function App() {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
     setWinner(null)
+
+    //reset local storage
+    resetGameStorage()
   }
 
   return (
