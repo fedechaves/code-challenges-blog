@@ -2,7 +2,8 @@ import { useState } from 'react';
 import confetti from 'canvas-confetti'
 import Square from './components/Square';
 import { TURNS } from './constants';
-import { checkWinner } from './logic/board';
+import { checkWinner, checkEndGame } from './logic/board';
+import WinnerModal from './components/WinnerModal';
 import './App.css'
 
 function App() {
@@ -36,10 +37,6 @@ function App() {
     setWinner(null)
   }
 
-  const checkEndGame = (newBoard) => {
-    return newBoard.every((square) => square !== null)
-  }
-
   return (
     <main className='board'>
       <h1>Tic Tac Toe</h1>
@@ -69,25 +66,7 @@ function App() {
         </Square>
       </section>
 
-      {
-        winner !== null && (
-          <section className="winner">
-            <div className="text">
-              <h2>
-                {winner === false ? 'Empate':'Ganó:'}
-              </h2>
-
-              <header className="win">
-                {winner && <Square>{winner}</Square>}
-              </header>
-
-              <footer>
-                <button onClick={resetGame}>Empezar de nuevo</button>
-              </footer>
-            </div>
-          </section>
-        ) 
-      }
+      <WinnerModal resetGame={resetGame} winner={winner}></WinnerModal>
     </main>
   )
 }
