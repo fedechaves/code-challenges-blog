@@ -10,22 +10,36 @@ const App = () => {
 
   useEffect(() => {
     fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Error fetching fact')
+        return res.json()
+      })
       .then(data => {
         const { fact } = data
-        setFact(data.fact)
-
-        const firstWord = fact.split(' ', 3).join(' ')
-        console.log(firstWord)
-
-        fetch(`https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`)
-          .then(res => res.json())
-          .then(data => {
-            const { url } = data
-            setImage(url)
-          })
+        setFact(fact)
+      })
+      .catch((err) => {
+        console.error(err)
       })
   }, [])
+
+  useEffect(() => {
+    if (!fact) return
+
+    const firstWord = fact.split(' ', 3).join(' ')
+    fetch(`https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`)
+      .then(res => {
+        if (!res.ok) throw new Error('Error fetching fact')
+        return res.json()
+      })
+      .then(data => {
+        const { url } = data
+        setImage(url)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }, [fact])
 
   return (
     <main style={{ display: 'flex', flexDirection: 'column', placeItems: 'center', margin: '0 auto', fontFamily: 'system-ui' }}>
