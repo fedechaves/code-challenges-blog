@@ -1,4 +1,5 @@
 export async function fetchApi (url) {
-  fetch(url)
-    .then(res => res.json())
+  const res = await fetch(url)
+  const data = await res.json()
+  return data
 }
