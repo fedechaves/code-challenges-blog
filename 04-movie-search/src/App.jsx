@@ -3,7 +3,8 @@ import { Movies } from './components/Movies'
 import { useMovies } from './hooks/useMovies'
 
 function App() {
-  const { movies: mappedMovies } = useMovies()
+  const { movies } = useMovies()
+
   return (
     <div className='page'>
       <header>
@@ -14,7 +15,7 @@ function App() {
         </form>
       </header>
       <main>
-        <Movies movies={mappedMovies} />
+        <Movies movies={ movies} />
       </main>
     </div>
   )
