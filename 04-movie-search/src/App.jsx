@@ -6,19 +6,21 @@ import { useMovies } from './hooks/useMovies'
 function App() {
   const { movies } = useMovies()
   const inputRef = useRef()
-  const handleClick = () => {
-    const inputEl = inputRef.current
-    const value = inputEl.value
-    console.log(value)
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const { query } = Object.fromEntries(
+      new window.FormData(event.target))
+    console.log(query)
   }
 
   return (
-    <div className='page'>
+    <div className='page' onSubmit={handleSubmit}>
       <header>
       <h1>Movie Finder</h1>
         <form className='form'>
-          <input placeholder='Avengers, Star Wars, The Matrix...' />
-          <button onClick={handleClick} type='submit'>Search</button>
+          <input name='query' placeholder='Avengers, Star Wars, The Matrix...' />
+          <button type='submit'>Search</button>
         </form>
       </header>
       <main>
