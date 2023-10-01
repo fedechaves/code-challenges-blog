@@ -5,6 +5,12 @@ import { useMovies } from './hooks/useMovies'
 
 function App() {
   const { movies } = useMovies()
+  const inputRef = useRef()
+  const handleClick = () => {
+    const inputEl = inputRef.current
+    const value = inputEl.value
+    console.log(value)
+  }
 
   return (
     <div className='page'>
@@ -12,7 +18,7 @@ function App() {
       <h1>Movie Finder</h1>
         <form className='form'>
           <input placeholder='Avengers, Star Wars, The Matrix...' />
-          <button type='submit'>Search</button>
+          <button onClick={handleClick} type='submit'>Search</button>
         </form>
       </header>
       <main>
