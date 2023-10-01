@@ -1,11 +1,11 @@
 import './App.css'
-//import { useRef } from 'react'
+import { useRef } from 'react'
 import { Movies } from './components/Movies'
 import { useMovies } from './hooks/useMovies'
 
 function App() {
   const { movies } = useMovies()
-  //const inputRef = useRef()
+  const inputRef = useRef()
   
   const handleSubmit = (event) => {
     event.preventDefault()
