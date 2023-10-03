@@ -1,10 +1,12 @@
+import { products as initialProducts } from "./mocks/products.json"
+import Products from "./components/Products"
+import { useState } from "react"
 
-import './App.css'
 
 function App() {
-
+  const [products] = useState(initialProducts)
   return (
-    <div></div>
+    <Products products={products} />
   )
 }
 
