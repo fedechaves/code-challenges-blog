@@ -1,10 +1,15 @@
+import './Footer.css'
 
-
-const Footer = () => {
+// eslint-disable-next-line react/prop-types
+const Footer = ({ filters }) => {
   return (
-    <div>
-      
-    </div>
+    <footer className='footer'>
+      {
+        JSON.stringify(filters, null, 2)
+      }
+      {/* <h4>Prueba técnica de React ⚛️ － <span>@fedechaves</span></h4>
+      <h5>Shopping Cart con useContext & useReducer</h5> */}
+    </footer>
   )
 }
 
