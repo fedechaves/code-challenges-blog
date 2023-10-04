@@ -1,23 +1,23 @@
-import {  useState, useId } from 'react'
+import {  useId } from 'react'
+import { useFilters } from '../hooks/useFilters'
 import './Filters.css'
 
 // eslint-disable-next-line react/prop-types
-const Filters = ({ onChange }) => {
-  const [minPrice, setMinPrice] = useState(0)
+const Filters = () => {
+  const { filters, setFilters } = useFilters()
 
   const minPriceFilterId = useId()
   const categoryFilterId = useId() 
 
   const handleChangeMinPrice = (event) => {
-    setMinPrice(event.target.value)
-    onChange(prevState => ({
+    setFilters(prevState => ({
       ...prevState,
       minPrice: event.target.value
     }))
   }
 
   const handleChangeCategory = (event) => {
-    onChange(prevState => ({
+    setFilters(prevState => ({
       ...prevState,
       category: event.target.value
     }))
@@ -34,8 +34,9 @@ const Filters = ({ onChange }) => {
           min='0'
           max='1000'
           onChange={handleChangeMinPrice}
+          value={filters.minPrice}
         />
-        <span>${minPrice}</span>
+        <span>${filters.minPrice}</span>
       </div>
 
       <div>

@@ -1,7 +1,9 @@
 import './Footer.css'
+import { useFilters } from '../hooks/useFilters'
 
 // eslint-disable-next-line react/prop-types
-const Footer = ({ filters }) => {
+const Footer = () => {
+  const { filters } = useFilters()
   return (
     <footer className='footer'>
       {
