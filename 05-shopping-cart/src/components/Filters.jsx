@@ -1,13 +1,12 @@
-import {  useId } from 'react'
-import { useFilters } from '../hooks/useFilters'
+import { useId } from 'react'
+import { useFilters } from '../hooks/useFilters.js'
 import './Filters.css'
 
-// eslint-disable-next-line react/prop-types
-const Filters = () => {
+export function Filters () {
   const { filters, setFilters } = useFilters()
 
   const minPriceFilterId = useId()
-  const categoryFilterId = useId() 
+  const categoryFilterId = useId()
 
   const handleChangeMinPrice = (event) => {
     setFilters(prevState => ({
@@ -17,6 +16,9 @@ const Filters = () => {
   }
 
   const handleChangeCategory = (event) => {
+    // ⬇️ ESTO HUELE MAL
+    // estamos pasando la función de actualizar estado
+    // nativa de React a un componente hijo
     setFilters(prevState => ({
       ...prevState,
       category: event.target.value
@@ -24,11 +26,11 @@ const Filters = () => {
   }
 
   return (
-    <section className="filters">
+    <section className='filters'>
 
       <div>
-        <label htmlFor={minPriceFilterId}>Price</label>
-        <input 
+        <label htmlFor={minPriceFilterId}>Precio a partir de:</label>
+        <input
           type='range'
           id={minPriceFilterId}
           min='0'
@@ -40,15 +42,15 @@ const Filters = () => {
       </div>
 
       <div>
-        <label htmlFor={categoryFilterId}>Category</label>
+        <label htmlFor={categoryFilterId}>Categoría</label>
         <select id={categoryFilterId} onChange={handleChangeCategory}>
-          <option value="all">All</option>
-          <option value="laptops">Laptops</option>
-          <option value="smartphones">Smartphones</option>
+          <option value='all'>Todas</option>
+          <option value='laptops'>Portátiles</option>
+          <option value='smartphones'>Celulares</option>
         </select>
       </div>
+
     </section>
+
   )
 }
-
-export default Filters

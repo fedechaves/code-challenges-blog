@@ -1,13 +1,10 @@
-import Filters from './Filters'
+import { Filters } from './Filters.jsx'
 
-// eslint-disable-next-line react/prop-types
-const Header = () => {
+export function Header () {
   return (
     <header>
-      <h1>React Shop 🛒 </h1>
+      <h1>React Shop 🛒</h1>
       <Filters />
     </header>
   )
 }
-
-export default Header
