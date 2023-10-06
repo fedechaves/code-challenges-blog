@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import './App.css'
 
-function Home () {
+function HomePage () {
   return (
     <>
       <h1>Home</h1>
@@ -10,7 +11,7 @@ function Home () {
   )
 }
 
-function About() {
+function AboutPage() {
   return (
     <>
       <h1>About</h1>
@@ -23,13 +24,14 @@ function About() {
   )
 }
 function App() {
-
+  const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
   return (
-    <>
-      <Home />
-      <About />
-    </>
+    <main>
+      {currentPath === '/' && 
+      <HomePage />}
+      {currentPath === '/about' && <AboutPage />}
+    </main>
   )
 }
 
