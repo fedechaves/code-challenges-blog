@@ -3,6 +3,7 @@
     "standard": "^17.1.0"
   },
   "dependencies": {
+    "simpledotcss": "^2.2.1",
     "vite": "^4.4.9"
   },
   "eslintConfig": {
