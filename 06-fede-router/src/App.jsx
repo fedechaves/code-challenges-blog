@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
-const NAVIGATION_EVENT = 'pushstate'
+const EVENTS = {
+  PUSHSTATE: 'pushstate',
+  POPSTATE: 'popstate'
+}
 
 function navigate (href) {
   window.history.pushState({}, '',href)
@@ -14,7 +17,7 @@ function HomePage () {
     <>
       <h1>Home</h1>
       <p>This is a SPA to create a React Router from scratch.</p>
-      <a href="/about">Go to About Me.</a>
+      <button onClick={() => navigate('/about')}>Go to About Me.</button>
     </>
   )
 }
@@ -25,15 +28,30 @@ function AboutPage() {
       <h1>About</h1>
       <div>
         <img src="https://pbs.twimg.com/profile_images/1706686915167064064/Fh5d_3Mk_400x400.jpg" alt="profile_pic" />
-        <p>Hi! I'm fede and this is a React Router Clone</p>
+        <p>Hi! I&apos;m fede and this is a React Router Clone</p>
       </div>
-      <a href="/">Home</a>
+      <button onClick={() => navigate('/')}>Home</button>
     </>
   )
 }
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
+
+  useEffect(() => {
+    const onLocationChange = () => {
+      setCurrentPath(window.location.pathname)
+    }
+
+    window.addEventListener(EVENTS.PUSHSTATE, onLocationChange)
+    window.addEventListener(EVENTS.POPSTATE, onLocationChange)
+
+    return () => {
+      window.removeEventListener(EVENTS.PUSHSTATE, onLocationChange)
+      window.removeEventListener(EVENTS.POPSTATE, onLocationChange)
+    }
+
+  }, [])
 
   return (
     <main>
