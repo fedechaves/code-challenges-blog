@@ -1,5 +1,6 @@
 import Home from "./pages/Home"
 import About from "./pages/About"
+import SearchPage from "./pages/SearchPage"
 
 export const routes = [
     {
@@ -9,5 +10,9 @@ export const routes = [
     {
       path: '/about',
       Component: About
+    },
+    {
+      path: '/search/:query',
+      Component: SearchPage
     }
   ]
