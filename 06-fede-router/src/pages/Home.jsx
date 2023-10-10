@@ -5,7 +5,7 @@ export default function Home () {
       <>
         <h1>Home</h1>
         <p>This is a SPA to create a React Router from scratch.</p>
-        <Link to={'/about'}> Back Home</Link>
+        <Link to={'/about'}> About me</Link>
       </>
     )
   }

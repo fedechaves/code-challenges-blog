@@ -3,6 +3,9 @@ export const EVENTS = {
     POPSTATE: 'popstate'
   }
 
-  export const BUTTONS = {
-    primary : 0 
-  }
+export const BUTTONS = {
+  primary : 0 
+}
+
+
+
