@@ -1,20 +1,22 @@
 module.exports = {
-    env: {
-        browser: true,
-        es2021: true
-    },
-    extends: [
-       ' plugin:react/recommended',
-        'standard-with-typescript'
-    ],
-    parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        project: './tsconfig.json'
-    },
-    plugins: [
-        'react'
-    ],
-    rules: {
-    }
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: [
+    'standard-with-typescript',
+    'plugin:react/recommended'
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: '../07-todolist-TS/tsconfig.eslint.json',
+    tsconfigRootDir: __dirname
+  },
+  plugins: [
+    'react'
+  ],
+  rules: {
+    'react/react-in-jsx-scope': 'off'
+  }
 }
