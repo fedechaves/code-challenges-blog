@@ -6,6 +6,7 @@ import { checkWinner, checkEndGame } from './logic/board';
 import WinnerModal from './components/WinnerModal';
 import './App.css'
 import { saveGameToStorage, resetGameStorage } from './logic/storage';
+import { TwitterButton } from './components/TwitterButton';
 
 function App() {
   const [board, setBoard] = useState(() => {
@@ -58,6 +59,18 @@ function App() {
 
   return (
     <main className='board'>
+      <header style={{ display: 'flex', flexDirection: 'column', gap: '5px', margin:'10px'}}>
+      <TwitterButton
+        img="https://pbs.twimg.com/profile_images/1706686915167064064/Fh5d_3Mk_400x400.jpg"
+        name="Federico Chaves"
+        userName="@fedecha" 
+        />
+      <TwitterButton
+        img="https://pbs.twimg.com/profile_images/1706686915167064064/Fh5d_3Mk_400x400.jpg"
+        name="Federico Chaves"
+        userName="@fedecha" 
+        />
+      </header>
       <h1>Tic Tac Toe</h1>
       <button onClick={resetGame}>Reset del juego</button>
       <section className='game'>
