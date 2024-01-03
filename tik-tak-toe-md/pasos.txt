@@ -1,0 +1,3 @@
+1- crear turnos
+2- crear tablero vacio
+3-
