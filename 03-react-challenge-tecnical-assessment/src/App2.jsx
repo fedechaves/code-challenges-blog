@@ -1,29 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useCatFact2 } from './hooks/useCatFact2'
+import { useCatImage2 } from './hooks/useCatImage2'
 import './appStyle.css'
 
-const GET_CAT_FACT = 'https://catfact.ninja/fact'
-// const GET_CAT_IMAGE = `https://cataas.com/cat/says/${firstWord}?size=50&json=true`
-
 const App2 = () => {
-  const [data, setData] = useState()
-  useEffect(() => {
-    fetch(GET_CAT_FACT)
-      .then(res => res.json())
-      .then((data) => {
-        const { fact } = data
-        setData(fact)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  }, [])
+  const { data, refreshRandomFact } = useCatFact2()
+  const { url } = useCatImage2({ data })
 
-  console.log(data)
+  const handleClick = async () => {
+    refreshRandomFact()
+  }
+
   return (
     <main>
       <h1>Cat Api Proyect</h1>
-      <img src='' alt='' />
-      <p>paragraph</p>
+      {url && <img src={url} alt='this is a cat fact' />}
+      {data && <p>{data}</p>}
+      <button onClick={handleClick}>tirame otro facto</button>
     </main>
   )
 }
