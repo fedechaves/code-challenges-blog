@@ -56,6 +56,7 @@ function App() {
       turn: turn
     })
   }, [board, turn])
+  
   const fedecha = { 'img': 'https://pbs.twimg.com/profile_images/1706686915167064064/Fh5d_3Mk_400x400.jpg', 
                     'name': 'Federico Chaves',
                     'userName': '@fedecha',
