@@ -2,8 +2,10 @@ import { Search } from './mocks/with-results.json'
 import './App.css'
 import { useState } from 'react'
 
+//hacer el form minuto 40
+
 const App2 = () => {
-    const [isSearch, setSearch] = useState(false)
+    const [isSearch, setSearch] = useState('')
   return (
     <div className="page">
       <header>
