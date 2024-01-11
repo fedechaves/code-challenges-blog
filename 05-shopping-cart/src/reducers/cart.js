@@ -33,7 +33,7 @@ const UPDATE_STATE_BY_ACTION = {
       //   return item
       // })
 
-      // ⚡ usando el spread operator y slice
+      //// ⚡ usando el spread operator y slice
       const newState = [
         ...state.slice(0, productInCartIndex),
         { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity + 1 },
