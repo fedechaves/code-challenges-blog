@@ -45,6 +45,7 @@ const App3 = () => {
       <img src={url ? `${CAT_PREFIX_URL}${url}?size=50` : ''} alt='imagen de gato' />
       {info &&
         <p>{info}</p>}
+      {error && <span>{error}</span>}
     </article>
   )
 }
