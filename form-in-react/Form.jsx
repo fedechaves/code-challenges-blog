@@ -1,10 +1,10 @@
-import { useState } from 'react'
-
+import { useState, useEffect, useRef } from 'react'
 
 const Form = () => {
   const [ query, setQuery ] = useState('')
   const [ error, setError ] = useState('')
- 
+  const isFirstInput = useRef(true)
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -19,6 +19,10 @@ const Form = () => {
 
   //validacion con useEffect
   useEffect(()=>{
+    if(isFirstInput.current) {
+      isFirstInput.current = search === ''
+      return
+    }
     if(query === ''){
       setError('No se puede empezar con espacio')
       return 
